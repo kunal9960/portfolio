@@ -1,0 +1,9 @@
+@import url("https://fonts.googleapis.com/css?family=Inconsolata&display=swap");
+* {font-family: 'Inconsolata';}
+
+ul {list-style-type: none;}
+
+hr {
+    margin-top: 0px;
+    margin-bottom: 5%;
+}
