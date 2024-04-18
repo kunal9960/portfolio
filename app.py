@@ -21,11 +21,15 @@ I'm dedicated to unravel insights from complex datasets through statistical meth
 """
 
 SOCIALS = (
-    "[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/kunal-dalvi-0b273b2b4)",
-    "[![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:kunald9960@gmail.com)",
-    "[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/kunal9960)",
-    "[![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/kunalfr_)&nbsp;",
-    "[![Discord](https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/bge3cXHuNC)",
+    '<a href="https://www.linkedin.com/in/kunal-dalvi-0b273b2b4"><img src="https://img.icons8.com/external-justicon-lineal-color-justicon/344/external-linkedin-social-media-justicon-lineal-color-justicon.png" width="60" /></a>',
+    '&nbsp;',
+    '<a href="https://twitter.com/kunalfr_"><img src="https://img.icons8.com/external-justicon-lineal-color-justicon/344/external-twitter-social-media-justicon-lineal-color-justicon.png" width="60" /></a>',
+    '&nbsp;',
+    '<a href="https://github.com/kunal9960"><img src="https://raw.githubusercontent.com/kunal9960/kunal9960/main/github.png" width="62" /></a>',
+    '&nbsp;',
+    '<a href="mailto:kunald9960@gmail.com"><img src="https://img.icons8.com/external-justicon-lineal-color-justicon/344/external-gmail-social-media-justicon-lineal-color-justicon.png" width="60"/></a>',
+    '&nbsp;',
+    '<a href="https://discord.gg/bge3cXHuNC"><img src="https://img.icons8.com/external-justicon-lineal-color-justicon/344/external-discord-social-media-justicon-lineal-color-justicon.png" width="60" /></a>'
 )
 st.set_page_config(page_title=PAGE_TITLE, page_icon=PAGE_ICON)
 st.markdown(
@@ -65,15 +69,17 @@ with col2:
 
 # --- SOCIAL LINKS ---
 st.write("#")
-st.write("---")
+
 cols = st.columns(len(SOCIALS))
 for index, links in enumerate(SOCIALS):
-    cols[index].write(f"{links}")
+    cols[index].markdown(links, unsafe_allow_html=True)
+
+
 
 
 # --- EXPERIENCE AND QUALIFICATIONS
 st.write("#")
-st.subheader("🎓 Education")
+st.subheader("📖 Education")
 st.write("---")
 
 st.write("1) **Bachelor of Computer Science**")
@@ -111,7 +117,7 @@ with col3:
 
 # --- SKILLS ---
 st.write("#")
-st.subheader("Hard Skills")
+st.subheader("🛠️ Hard Skills")
 st.write("---")
 st.write(
     """
