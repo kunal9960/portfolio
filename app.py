@@ -134,6 +134,59 @@ with col2:
     )
 
 
+# --- WORK HISTORY ---
+st.write("#")
+st.subheader("💼 Work History")
+st.write("---")
+
+col1, col2 = st.columns(2)
+with col1:
+    st.write("<h4>🦊 ShadowFox</h4>", unsafe_allow_html=True)
+with col2:
+    st.write("<h4>💡 Prodidy InfoTech</h4>", unsafe_allow_html=True)
+
+col1, col2, col3, col4 = st.columns([7, 2, 7, 2])
+with col1:
+    st.write("<h5><b>Python Developer Intern<b></h5>", unsafe_allow_html=True)
+    st.write("📅 April '24 - May '24 ")
+    st.write("📍 <i>Chennai, Tamil Nadu, India </i><br>&nbsp;&nbsp;&nbsp;<i>(Remote)</i>", unsafe_allow_html=True)
+
+with col2:
+    st.markdown(
+        """
+        <style>
+            .vertical-line2 {
+                border-left: 6px solid orange;
+                height: 107px;
+                margin: auto;
+            }
+        </style>
+        """
+        , unsafe_allow_html=True
+    )
+    st.markdown('<div class="vertical-line2"></div>', unsafe_allow_html=True)
+
+with col3:
+    st.write("<h5><b>Data Analyst Intern</b></h5>", unsafe_allow_html=True)
+    st.write("📅 March '24 - April '24 ")
+    st.write("📍 <i>Mumbai, Maharashtra, India</i><br>&nbsp;&nbsp;&nbsp;<i>(Remote)</i>", unsafe_allow_html=True)
+
+with col4:
+    st.markdown(
+        """
+        <style>
+            .vertical-line {
+                border-left: 6px solid yellow;
+                height: 107px;
+                margin: auto;
+            }
+        </style>
+        """
+        , unsafe_allow_html=True
+    )
+    st.markdown('<div class="vertical-line"></div>', unsafe_allow_html=True)
+
+
 # --- EXPERIENCE AND QUALIFICATIONS
 st.write("#")
 st.subheader("📖 Education")
@@ -149,7 +202,7 @@ with col2:
     st.write(
         """
 - **P.E.S. Modern College of Arts, Science and Commerce**
-- <i>Pune, Maharashtra, India</i>
+- 📍 <i>Pune, Maharashtra, India</i>
 - (2020-2023)
 """, unsafe_allow_html=True)
 with col3:
@@ -165,25 +218,9 @@ with col2:
     st.write(
         """
 - **Kendriya Vidyalaya No.2 AFS**
-- <i>Pune, Maharashtra, India</i>
+- 📍 <i>Pune, Maharashtra, India</i>
 - (2018-2020)
 """, unsafe_allow_html=True)
 with col3:
     st.write("77.8%")
 
-
-# --- WORK HISTORY ---
-st.write("#")
-st.subheader("Work History")
-st.write("---")
-
-# --- JOB 1
-st.write("🚧", "**Data Analyst Intern**")
-st.write("March '24 - April '24 ")
-st.write(
-    """
-- ► Used PowerBI and SQL to redeﬁne and track KPIs surrounding marketing initiatives, and supplied recommendations to boost landing page conversion rate by 38%
-- ► Led a team of 4 analysts to brainstorm potential marketing and sales improvements, and implemented A/B tests to generate 15% more client leads
-- ► Redesigned data model through iterations that improved predictions by 12%
-"""
-)
