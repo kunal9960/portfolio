@@ -1,6 +1,7 @@
 from pathlib import Path
 import streamlit as st
 from PIL import Image
+from send_email import send_email
 
 
 # --- PATH SETTINGS ---
@@ -78,6 +79,7 @@ for index, links in enumerate(SOCIALS):
 
 # --- SKILLS ---
 st.write("#")
+st.write("#")
 st.subheader("🛠️ Hard Skills")
 st.write("---")
 col1, col2 = st.columns(2)
@@ -136,6 +138,7 @@ with col2:
 
 # --- WORK HISTORY ---
 st.write("#")
+st.write("#")
 st.subheader("💼 Work History")
 st.write("---")
 
@@ -189,6 +192,7 @@ with col4:
 
 # --- EXPERIENCE AND QUALIFICATIONS
 st.write("#")
+st.write("#")
 st.subheader("📖 Education")
 st.write("---")
 
@@ -224,3 +228,53 @@ with col2:
 with col3:
     st.write("77.8%")
 
+
+# --- CONNECT WITH ME
+
+
+st.write("#")
+st.write("#")
+st.subheader("🔭 Contact Me ")
+st.write("---")
+
+col1, col2 = st.columns(2)
+with col1:
+    with st.form(key="email_form"):
+        user_email = st.text_input("Your email address")
+        raw_message = st.text_area("Your message")
+        message = f"""\
+Subject: New email from {user_email}
+From: {user_email}
+{raw_message}
+        """
+        button = st.form_submit_button("Submit")
+        if button:
+            send_email(message)
+            st.info("Your email was sent successfully!")
+
+with col2:
+    st.image("https://steamuserimages-a.akamaihd.net/ugc/1696157019707375037/BD6E6F9F1065D25D25E63DADF820A406B28032BA/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false")
+    st.write("<i>\"Sometimes the greatest dishes come from the most unlikely ingredients\"</i> - PO", unsafe_allow_html=True)
+
+# --- FOOTER ---
+st.write("#")
+st.write("#")
+footer_html = """
+<style>
+.footer {
+    width: 100%;
+    background-color: #262730;
+    color: white;
+    text-align: center;
+    padding: 2px;
+}
+</style>
+<div class="footer">
+    <br>
+    <p><b>Developed with ❤️ by Kunal Dalvi</b></a></p>
+    <p><b>Thank you for visiting!</b></a></p>
+</div>
+"""
+
+with st.container():
+    st.markdown(footer_html, unsafe_allow_html=True)
