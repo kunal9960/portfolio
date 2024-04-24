@@ -2,9 +2,10 @@ from pathlib import Path
 import streamlit as st
 from PIL import Image
 from send_email import send_email
-
+from streamlit_card import card
 
 # --- PATH SETTINGS ---
+
 current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
 css_file = current_dir / "styles" / "main.css"
 resume_file = current_dir / "assets" / "resume.pdf"
@@ -12,6 +13,7 @@ profile_pic = current_dir / "assets" / "profile-pic.jpg"
 
 
 # --- GENERAL SETTINGS ---
+
 PAGE_TITLE = "Digital CV | Kunal Dalvi"
 PAGE_ICON = "assets/favicon.ico"
 NAME = "PORTFOLIO WEBSITE"
@@ -46,6 +48,7 @@ st.markdown(
 
 
 # --- LOAD CSS, PDF & PROFILE PIC ---
+
 with open(css_file) as f:
     st.markdown("<style>{}</style>".format(f.read()), unsafe_allow_html=True)
 with open(resume_file, "rb") as pdf_file:
@@ -54,6 +57,7 @@ profile_pic = Image.open(profile_pic)
 
 
 # --- HERO ---
+
 col1, col2 = st.columns([5, 6])
 with col1:
     st.image(profile_pic, width=320)
@@ -70,14 +74,21 @@ with col2:
 
 
 # --- SOCIAL LINKS ---
+
 st.write("#")
 
 cols = st.columns(len(SOCIALS))
 for index, links in enumerate(SOCIALS):
     cols[index].markdown(links, unsafe_allow_html=True)
 
+st.write("#")
 
-# --- SKILLS ---
+
+# --- PROJECTS ---
+
+
+# --- HARD SKILLS ---
+
 st.write("#")
 st.write("#")
 st.subheader("🛠️ Hard Skills")
@@ -137,6 +148,7 @@ with col2:
 
 
 # --- WORK HISTORY ---
+
 st.write("#")
 st.write("#")
 st.subheader("💼 Work History")
@@ -191,6 +203,7 @@ with col4:
 
 
 # --- EXPERIENCE AND QUALIFICATIONS
+
 st.write("#")
 st.write("#")
 st.subheader("📖 Education")
@@ -231,7 +244,6 @@ with col3:
 
 # --- CONNECT WITH ME
 
-
 st.write("#")
 st.write("#")
 st.subheader("🔭 Contact Me ")
@@ -254,9 +266,11 @@ From: {user_email}
 
 with col2:
     st.image("https://steamuserimages-a.akamaihd.net/ugc/1696157019707375037/BD6E6F9F1065D25D25E63DADF820A406B28032BA/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false")
-    st.write("<i>\"Sometimes the greatest dishes come from the most unlikely ingredients\"</i> - PO", unsafe_allow_html=True)
+    st.write("<i>\"Sometimes the greatest dishes come from the most unlikely ingredients\"</i> - Po", unsafe_allow_html=True)
+
 
 # --- FOOTER ---
+
 st.write("#")
 st.write("#")
 footer_html = """
