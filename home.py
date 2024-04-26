@@ -15,8 +15,12 @@ profile_pic = current_dir / "assets" / "profile-pic.jpg"
 
 # --- GENERAL SETTINGS ---
 
+
 PAGE_TITLE = "Digital CV | Kunal Dalvi"
 PAGE_ICON = "assets/favicon.ico"
+
+st.set_page_config(page_title=PAGE_TITLE, page_icon=PAGE_ICON)
+
 NAME = "PORTFOLIO WEBSITE"
 DESCRIPTION = """ 
 Hi! I'm Kunal Dalvi, a Python enthusiast with a keen interest in data analysis. 
@@ -36,7 +40,20 @@ SOCIALS = (
     '<a href="https://discord.gg/bge3cXHuNC"><img src="https://img.icons8.com/external-justicon-lineal-color-justicon/344/external-discord-social-media-justicon-lineal-color-justicon.png" width="60" /></a>'
 )
 
-st.set_page_config(page_title=PAGE_TITLE, page_icon=PAGE_ICON)
+st.markdown(
+    """
+    <style>
+    img {
+        cursor: pointer;
+        transition: all .2s ease-in-out;
+    }
+    img:hover {
+        transform: scale(1.1);
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
 
 
 # --- LOAD CSS, PDF & PROFILE PIC ---
@@ -315,3 +332,4 @@ elif tabs == 'Projects':
 elif tabs == 'About':
     st.title("Tom")
     st.write('Name of option is {}'.format(tabs))
+
