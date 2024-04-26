@@ -294,3 +294,4 @@ footer_html = """
 
 with st.container():
     st.markdown(footer_html, unsafe_allow_html=True)
+
