@@ -15,7 +15,6 @@ profile_pic = current_dir / "assets" / "profile-pic.jpg"
 
 # --- GENERAL SETTINGS ---
 
-
 PAGE_TITLE = "Digital CV | Kunal Dalvi"
 PAGE_ICON = "assets/favicon.ico"
 
@@ -29,30 +28,11 @@ I'm dedicated to unravel insights from complex datasets through statistical meth
 """
 
 SOCIALS = (
-    '<a href="https://www.linkedin.com/in/kunal-dalvi-0b273b2b4"><img src="https://img.icons8.com/external-justicon-lineal-color-justicon/344/external-linkedin-social-media-justicon-lineal-color-justicon.png" width="60" /></a>',
-    '&nbsp;',
-    '<a href="https://twitter.com/kunalfr_"><img src="https://img.icons8.com/external-justicon-lineal-color-justicon/344/external-twitter-social-media-justicon-lineal-color-justicon.png" width="60" /></a>',
-    '&nbsp;',
-    '<a href="https://github.com/kunal9960"><img src="https://raw.githubusercontent.com/kunal9960/kunal9960/main/github.png" width="62" /></a>',
-    '&nbsp;',
+    '<a href="https://www.linkedin.com/in/kunal-dalvi-0b273b2b4"><img src="https://img.icons8.com/external-justicon-lineal-color-justicon/344/external-linkedin-social-media-justicon-lineal-color-justicon.png" width="60"/></a>',
+    '<a href="https://twitter.com/kunalfr_"><img src="https://img.icons8.com/external-justicon-lineal-color-justicon/344/external-twitter-social-media-justicon-lineal-color-justicon.png" width="60"/></a>',
+    '<a href="https://github.com/kunal9960"><img src="https://raw.githubusercontent.com/kunal9960/kunal9960/main/github.png" width="62"/></a>',
     '<a href="mailto:kunald9960@gmail.com"><img src="https://img.icons8.com/external-justicon-lineal-color-justicon/344/external-gmail-social-media-justicon-lineal-color-justicon.png" width="60"/></a>',
-    '&nbsp;',
-    '<a href="https://discord.gg/bge3cXHuNC"><img src="https://img.icons8.com/external-justicon-lineal-color-justicon/344/external-discord-social-media-justicon-lineal-color-justicon.png" width="60" /></a>'
-)
-
-st.markdown(
-    """
-    <style>
-    img {
-        cursor: pointer;
-        transition: all .2s ease-in-out;
-    }
-    img:hover {
-        transform: scale(1.1);
-    }
-    </style>
-    """,
-    unsafe_allow_html=True,
+    '<a href="https://discord.gg/bge3cXHuNC" class="no-margin"><img src="https://img.icons8.com/external-justicon-lineal-color-justicon/344/external-discord-social-media-justicon-lineal-color-justicon.png" width="60"/></a>'
 )
 
 
@@ -112,10 +92,29 @@ if tabs == 'Home':
     # --- SOCIAL LINKS ---
 
     st.write("#")
+    socials_html = ''.join(SOCIALS)
 
-    cols = st.columns(len(SOCIALS))
-    for index, links in enumerate(SOCIALS):
-        cols[index].markdown(links, unsafe_allow_html=True)
+    styled_socials_html = f"""
+    <style>
+        .socials a {{
+            margin-right: 100px; /* Adjust the spacing as needed */
+        }}
+        .socials img {{
+            cursor: pointer;
+            transition: all .1s ease-in-out;
+        }}
+        .socials img:hover {{
+            transform: scale(1.1);
+        }}
+        .no-margin {{
+            margin-right: 0 !important; /* Remove margin for Discord */
+        }}
+    </style>
+
+    <div class="socials">{socials_html}</div>
+    """
+
+    st.markdown(styled_socials_html, unsafe_allow_html=True)
 
     # --- HARD SKILLS ---
 
@@ -325,11 +324,10 @@ if tabs == 'Home':
 
 # --- PAGE 2 ----
 
-elif tabs == 'Projects':
+if tabs == 'Projects':
     st.title("Paper")
     st.write('Name of option is {}'.format(tabs))
 
-elif tabs == 'About':
+if tabs == 'About':
     st.title("Tom")
     st.write('Name of option is {}'.format(tabs))
-
