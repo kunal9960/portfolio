@@ -1,8 +1,10 @@
-from pathlib import Path
 import streamlit as st
+from pathlib import Path
 from PIL import Image
 from send_email import send_email
 from st_on_hover_tabs import on_hover_tabs
+from streamlit_extras.let_it_rain import rain
+from streamlit_option_menu import option_menu
 
 
 # --- PATH SETTINGS ---
@@ -15,10 +17,18 @@ profile_pic = current_dir / "assets" / "profile-pic.jpg"
 
 # --- GENERAL SETTINGS ---
 
+
+def V_SPACE(lines):
+    for _ in range(lines):
+        st.write('&nbsp;')
+
+
 PAGE_TITLE = "Digital CV | Kunal Dalvi"
 PAGE_ICON = "assets/favicon.ico"
 
+
 st.set_page_config(page_title=PAGE_TITLE, page_icon=PAGE_ICON)
+
 
 NAME = "PORTFOLIO WEBSITE"
 DESCRIPTION = """ 
@@ -26,6 +36,7 @@ Hi! I'm Kunal Dalvi, a Python enthusiast with a keen interest in data analysis.
 I'm driven by curiosity and love taking on new challenges. 
 I'm dedicated to unravel insights from complex datasets through statistical methods and programming.
 """
+
 
 SOCIALS = (
     '<a href="https://www.linkedin.com/in/kunal-dalvi-0b273b2b4"><img src="https://img.icons8.com/external-justicon-lineal-color-justicon/344/external-linkedin-social-media-justicon-lineal-color-justicon.png" width="60"/></a>',
@@ -66,12 +77,24 @@ with st.sidebar:
                                  'tabStyle': {'list-style-type': 'none',
                                               'margin-bottom': '30px',
                                               'padding-left': '30px'}},
-                         key="1")
+                         key="1", default_choice=0)
 
 
 # --- PAGE 1 ---
 
 if tabs == 'Home':
+    st.markdown(
+        """
+        <script>
+            window.onload = function() {
+                setTimeout(function() {
+                    window.scrollTo(0, 0);
+                }, 100);
+            }
+        </script>
+        """,
+        unsafe_allow_html=True
+    )
 
     # --- HERO ---
 
@@ -91,13 +114,13 @@ if tabs == 'Home':
 
     # --- SOCIAL LINKS ---
 
-    st.write("#")
+    V_SPACE(1)
     socials_html = ''.join(SOCIALS)
 
     styled_socials_html = f"""
     <style>
         .socials a {{
-            margin-right: 100px; /* Adjust the spacing as needed */
+            margin-right: 100px;
         }}
         .socials img {{
             cursor: pointer;
@@ -107,7 +130,7 @@ if tabs == 'Home':
             transform: scale(1.1);
         }}
         .no-margin {{
-            margin-right: 0 !important; /* Remove margin for Discord */
+            margin-right: 0 !important;
         }}
     </style>
 
@@ -118,8 +141,8 @@ if tabs == 'Home':
 
     # --- HARD SKILLS ---
 
-    st.write("#")
-    st.write("#")
+    V_SPACE(1)
+    V_SPACE(1)
     st.subheader("🛠️ Hard Skills")
     st.write("---")
     col1, col2 = st.columns(2)
@@ -177,8 +200,8 @@ if tabs == 'Home':
 
     # --- WORK HISTORY ---
 
-    st.write("#")
-    st.write("#")
+    V_SPACE(1)
+    V_SPACE(1)
     st.subheader("💼 Work History")
     st.write("---")
 
@@ -231,8 +254,8 @@ if tabs == 'Home':
 
     # --- EXPERIENCE AND QUALIFICATIONS
 
-    st.write("#")
-    st.write("#")
+    V_SPACE(1)
+    V_SPACE(1)
     st.subheader("📖 Education")
     st.write("---")
 
@@ -270,8 +293,8 @@ if tabs == 'Home':
 
     # --- CONNECT WITH ME
 
-    st.write("#")
-    st.write("#")
+    V_SPACE(1)
+    V_SPACE(1)
     st.subheader("🔭 Contact Me ")
     st.write("---")
 
@@ -299,8 +322,8 @@ if tabs == 'Home':
 
     # --- FOOTER ---
 
-    st.write("#")
-    st.write("#")
+    V_SPACE(1)
+    V_SPACE(1)
     footer_html = """
     <style>
     .footer {
@@ -322,12 +345,198 @@ if tabs == 'Home':
         st.markdown(footer_html, unsafe_allow_html=True)
 
 
-# --- PAGE 2 ----
+# --- PAGE 2 ---
 
 if tabs == 'Projects':
-    st.title("Paper")
-    st.write('Name of option is {}'.format(tabs))
+    st.markdown("<h1 style='text-align: center;'>My Project Showcase</h1>", unsafe_allow_html=True)
+    st.write("Here are my awesome projects:")
+    selected = option_menu(None, ["Python Projects", "Data Sci Projects", 'Database Projects'],
+                           icons=['filetype-py', 'clipboard-data-fill', "database-check"],
+                           menu_icon="cast", default_index=0, orientation="horizontal",
+                           styles={
+                               "container": {"padding": "0!important", "background-color": "#111111"},
+                               "icon": {"color": "#FFA500", "font-size": "17px"},
+                               "nav-link": {"font-family": "consolas", "font-size": "17px", "text-align": "left",
+                                            "margin": "0px",
+                                            "--hover-color": "#555"},
+                               "nav-link-selected": {"font-family": "consolas", "background-color": "#333333",
+                                                     "font-size": "17px", "font-weight": "normal",
+                                                     "border": "0.5px solid white"},
+                           })
+
+    if selected == "Python Projects":
+        animation_css = """
+                <style>
+                    @keyframes fadeIn {
+                        from {
+                            opacity: 0;
+                        }
+                        to {
+                            opacity: 1;
+                        }
+                    }
+                
+                    .project-card {
+                        animation: fadeIn 0.5s ease-in-out;
+                    }
+                </style>
+
+            """
+
+        st.markdown(animation_css, unsafe_allow_html=True)
+
+        css = """
+                <style>
+                    .project-card {
+                        border: 2px solid;
+                        border-radius: 15px;
+                        padding: 10px;
+                        transition: transform 0.3s ease-in-out;
+                        margin-bottom: 20px;
+                    }
+                    .project-card:hover {
+                        transform: scale(1.05);
+                    }
+                </style>
+                """
+
+        st.markdown(css, unsafe_allow_html=True)
+
+        project_details = [
+            {"name": "Awesome Project 1",
+             "description": "This is a brief description of my awesome project 1. It does amazing things!",
+             "image": "https://raw.githubusercontent.com/kunal9960/todo-web-app/master/Todo%20web%20app.png",
+             "github_link": "https://github.com/yourusername/awesome-project1"},
+            {"name": "Awesome Project 2",
+             "description": "This is a brief description of my awesome project 2. It does amazing things!",
+             "image": "https://raw.githubusercontent.com/kunal9960/todo-web-app/master/Todo%20web%20app.png",
+             "github_link": "https://github.com/yourusername/awesome-project2"},
+            {"name": "Awesome Project 2",
+             "description": "This is a brief description of my awesome project 2. It does amazing things!",
+             "image": "https://raw.githubusercontent.com/kunal9960/todo-web-app/master/Todo%20web%20app.png",
+             "github_link": "https://github.com/yourusername/awesome-project2"},
+            {"name": "Awesome Project 2",
+             "description": "This is a brief description of my awesome project 2. It does amazing things!",
+             "image": "https://raw.githubusercontent.com/kunal9960/todo-web-app/master/Todo%20web%20app.png",
+             "github_link": "https://github.com/yourusername/awesome-project2"}
+        ]
+
+        with st.container():
+            col1, col2 = st.columns(2)
+
+            for i, project in enumerate(project_details):
+                project_name = project["name"]
+                project_description = project["description"]
+                project_image = project["image"]
+                project_github_link = project["github_link"]
+
+                if i % 2 == 0:
+                    column = col1
+                else:
+                    column = col2
+
+                with column:
+                    st.markdown(
+                        f"""
+                            <div style="border: 2px solid; border-radius: 15px; padding: 10px;" class="project-card">
+                                <img src="{project_image}" width="325">
+                                <h3>{project_name}</h3>
+                                <p>{project_description}</p>
+                                <a href="{project_github_link}" target="_blank">
+                                    <img src="https://img.shields.io/badge/GitHub-View%20on%20GitHub-blue?logo=github">
+                                </a>
+                            </div>
+                            """,
+                        unsafe_allow_html=True
+                    )
+
+    if selected == "Data Sci Projects":
+        animation_css2 = """
+                        <style>
+                            @keyframes fadeIn {
+                                from {
+                                    opacity: 0;
+                                }
+                                to {
+                                    opacity: 1;
+                                }
+                            }
+
+                            .project-card2 {
+                                animation: fadeIn 0.6s ease-in-out;
+                            }
+                        </style>
+
+                    """
+
+        st.markdown(animation_css2, unsafe_allow_html=True)
+
+        css2 = """
+                <style>
+                    .project-card2 {
+                        border: 2px solid;
+                        border-radius: 15px;
+                        padding: 10px;
+                        transition: transform 0.3s ease-in-out;
+                        margin-bottom: 20px;
+                    }
+                    .project-card:hover {
+                        transform: scale(1.05);
+                    }
+                </style>
+                """
+
+        st.markdown(css2, unsafe_allow_html=True)
+
+        project_details = [
+            {"name": "Awesome Project 1",
+             "description": "This is a brief description of my awesome project 1. It does amazing things!",
+             "image": "https://raw.githubusercontent.com/kunal9960/todo-web-app/master/Todo%20web%20app.png",
+             "github_link": "https://github.com/yourusername/awesome-project1"},
+            {"name": "Awesome Project 2",
+             "description": "This is a brief description of my awesome project 2. It does amazing things!",
+             "image": "https://raw.githubusercontent.com/kunal9960/todo-web-app/master/Todo%20web%20app.png",
+             "github_link": "https://github.com/yourusername/awesome-project2"}
+        ]
+
+        with st.container():
+            col1, col2 = st.columns(2)
+
+            for i, project in enumerate(project_details):
+                project_name = project["name"]
+                project_description = project["description"]
+                project_image = project["image"]
+                project_github_link = project["github_link"]
+
+                if i % 2 == 0:
+                    column = col1
+                else:
+                    column = col2
+
+                with column:
+                    st.markdown(
+                        f"""
+                            <div style="border: 2px solid; border-radius: 15px; padding: 10px;" class="project-card2">
+                                <img src="{project_image}" width="325">
+                                <h3>{project_name}</h3>
+                                <p>{project_description}</p>
+                                <a href="{project_github_link}" target="_blank">
+                                    <img src="https://img.shields.io/badge/GitHub-View%20on%20GitHub-blue?logo=github">
+                                </a>
+                            </div>
+                            """,
+                        unsafe_allow_html=True
+                    )
+
+
+# --- PAGE 3 ---
 
 if tabs == 'About':
-    st.title("Tom")
-    st.write('Name of option is {}'.format(tabs))
+    st.title("Thank you for visiting")
+
+    rain(
+        emoji="😊",
+        font_size=40,
+        falling_speed=3,
+        animation_length="5s",
+    )
