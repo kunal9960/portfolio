@@ -1,4 +1,7 @@
 import streamlit as st
+import time
+import streamlit.components.v1 as components
+
 from pathlib import Path
 from PIL import Image
 from send_email import send_email
@@ -29,6 +32,14 @@ PAGE_ICON = "assets/favicon.ico"
 
 st.set_page_config(page_title=PAGE_TITLE, page_icon=PAGE_ICON)
 
+# This is for scrolling at top
+js = ''' 
+<script>
+    var body = window.parent.document.querySelector(".main"); 
+    console.log(body);
+    body.scrollTop = 0;
+</script>
+'''
 
 NAME = "PORTFOLIO WEBSITE"
 DESCRIPTION = """ 
@@ -83,6 +94,11 @@ with st.sidebar:
 # --- PAGE 1 ---
 
 if tabs == 'Home':
+    temp = st.empty()
+    with temp:
+        st.components.v1.html(js)
+        time.sleep(.1)
+    temp.empty()
     st.markdown(
         """
         <script>
@@ -348,6 +364,12 @@ if tabs == 'Home':
 # --- PAGE 2 ---
 
 if tabs == 'Projects':
+    temp = st.empty()
+    with temp:
+        st.components.v1.html(js)
+        time.sleep(.1)
+    temp.empty()
+
     st.markdown("<h1 style='text-align: center;'>My Project Showcase</h1>", unsafe_allow_html=True)
     st.write("Here are my awesome projects:")
     selected = option_menu(None, ["Python Projects", "Data Sci Projects", 'Database Projects'],
@@ -355,7 +377,7 @@ if tabs == 'Projects':
                            menu_icon="cast", default_index=0, orientation="horizontal",
                            styles={
                                "container": {"padding": "0!important", "background-color": "#111111"},
-                               "icon": {"color": "#FFA500", "font-size": "17px"},
+                               "icon": {"color": "#CBC3E3", "font-size": "17px"},
                                "nav-link": {"font-family": "consolas", "font-size": "17px", "text-align": "left",
                                             "margin": "0px",
                                             "--hover-color": "#555"},
@@ -365,6 +387,7 @@ if tabs == 'Projects':
                            })
 
     if selected == "Python Projects":
+
         animation_css = """
                 <style>
                     @keyframes fadeIn {
@@ -532,6 +555,11 @@ if tabs == 'Projects':
 # --- PAGE 3 ---
 
 if tabs == 'About':
+    temp = st.empty()
+    with temp:
+        st.components.v1.html(js)
+        time.sleep(.1)
+    temp.empty()
     st.title("Thank you for visiting")
 
     rain(
