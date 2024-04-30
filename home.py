@@ -30,7 +30,7 @@ PAGE_TITLE = "Digital CV | Kunal Dalvi"
 PAGE_ICON = "assets/favicon.ico"
 
 
-st.set_page_config(page_title=PAGE_TITLE, page_icon=PAGE_ICON)
+st.set_page_config(page_title=PAGE_TITLE, page_icon=PAGE_ICON, layout="wide")
 
 # This is for scrolling at top
 js = ''' 
@@ -229,7 +229,7 @@ if tabs == 'Home':
 
     col1, col2, col3, col4 = st.columns([7, 2, 7, 2])
     with col1:
-        st.write("<h5><b>Python Developer Intern<b></h5>", unsafe_allow_html=True)
+        st.write("<h5><b>Python Developer Intern</b></h5>", unsafe_allow_html=True)
         st.write("📅 April '24 - May '24 ")
         st.write("📍 <i>Chennai, Tamil Nadu, India </i><br>&nbsp;&nbsp;&nbsp;<i>(Remote)</i>", unsafe_allow_html=True)
 
@@ -335,6 +335,7 @@ if tabs == 'Home':
             "https://steamuserimages-a.akamaihd.net/ugc/1696157019707375037/BD6E6F9F1065D25D25E63DADF820A406B28032BA/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false")
         st.write("<i>\"Sometimes the greatest dishes come from the most unlikely ingredients\"</i> - Po",
                  unsafe_allow_html=True)
+        st.markdown("[![Visitors](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fportfolio-kunal.streamlit.app%2F&label=WEBSITE%20VIEWS&labelColor=%23333333&countColor=%23cbc3e3&labelStyle=upper)](https://visitorbadge.io/status?path=https%3A%2F%2Fportfolio-kunal.streamlit.app%2F)")
 
     # --- FOOTER ---
 
@@ -532,12 +533,12 @@ if tabs == 'Projects':
              "description": "Excel-based road accident analysis tool providing insights on trends, contributing factors, and interventions to enhance road safety.",
              "image": "https://raw.githubusercontent.com/kunal9960/accidents-data-analysis/main/Dashboard.png",
              "github_link": "https://github.com/kunal9960/accidents-data-analysis",
-             "height": 152},
+             "height": 160},
             {"name": "Titanic dataset Analysis",
              "description": "This script uses the Titanic dataset, detailing passenger information such as age, gender, class, fare, and survival status.",
              "image": "https://raw.githubusercontent.com/kunal9960/PRODIGY_DS_02/master/Gender.png",
              "github_link": "https://github.com/kunal9960/PRODIGY_DS_02",
-             "height": 152},
+             "height": 160},
         ]
 
         with st.container():
@@ -655,12 +656,12 @@ if tabs == 'Projects':
 # --- PAGE 3 ---
 
 if tabs == 'About':
+
     temp = st.empty()
     with temp:
         st.components.v1.html(js)
         time.sleep(.1)
     temp.empty()
-    st.title("Thank you for visiting")
 
     rain(
         emoji="😊",
@@ -668,3 +669,8 @@ if tabs == 'About':
         falling_speed=3,
         animation_length="5s",
     )
+
+    st.title("Thank you for visiting")
+
+    st.markdown("[![Visitors](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fportfolio-kunal.streamlit.app%2F&label=WEBSITE%20VIEWS&labelColor=%23333333&countColor=%23cbc3e3&labelStyle=upper)](https://visitorbadge.io/status?path=https%3A%2F%2Fportfolio-kunal.streamlit.app%2F)")
+
