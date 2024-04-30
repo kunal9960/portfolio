@@ -140,10 +140,10 @@ if tabs == 'Home':
         }}
         .socials img {{
             cursor: pointer;
-            transition: all .1s ease-in-out;
+            transition: all .2s ease-in-out;
         }}
         .socials img:hover {{
-            transform: scale(1.1);
+            transform: scale(1.2);
         }}
         .no-margin {{
             margin-right: 0 !important;
@@ -275,7 +275,7 @@ if tabs == 'Home':
     st.subheader("📖 Education")
     st.write("---")
 
-    st.write("1) **Bachelor of Computer Science**")
+    st.write(f"1) <h5><b>Bachelor's in Computer Science</b></h5>", unsafe_allow_html=True)
 
     col1, col2, col3 = st.columns([4, 21, 3])
     with col1:
@@ -291,7 +291,7 @@ if tabs == 'Home':
     with col3:
         st.write("8.57")
 
-    st.write("2) **Higher Secondary Education**")
+    st.write(f"2) <h5><b>Higher Secondary Education</b></h5>", unsafe_allow_html=True)
 
     col1, col2, col3 = st.columns([4, 21, 3])
     with col1:
@@ -315,15 +315,15 @@ if tabs == 'Home':
     st.write("---")
 
     col1, col2 = st.columns(2)
-    with col1:
+    with (col1):
         with st.form(key="email_form"):
             user_email = st.text_input("Your email address")
             raw_message = st.text_area("Your message")
             message = f"""\
-    Subject: New email from {user_email}
-    From: {user_email}
-    {raw_message}
-            """
+Subject: New email from {user_email}
+From: {user_email}
+{raw_message}
+"""
             button = st.form_submit_button("Submit")
             if button:
                 send_email(message)
@@ -337,30 +337,6 @@ if tabs == 'Home':
                  unsafe_allow_html=True)
         st.markdown("[![Visitors](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fportfolio-kunal.streamlit.app%2F&label=WEBSITE%20VIEWS&labelColor=%23333333&countColor=%23cbc3e3&labelStyle=upper)](https://visitorbadge.io/status?path=https%3A%2F%2Fportfolio-kunal.streamlit.app%2F)")
 
-    # --- FOOTER ---
-
-    V_SPACE(1)
-    V_SPACE(1)
-    footer_html = """
-    <style>
-    .footer {
-        width: 100%;
-        background-color: #262730;
-        color: white;
-        text-align: center;
-        padding: 2px;
-    }
-    </style>
-    <div class="footer">
-        <br>
-        <p><b>Developed with ❤️ by Kunal Dalvi</b></a></p>
-        <p><b>Thank you for visiting!</b></a></p>
-    </div>
-    """
-
-    with st.container():
-        st.markdown(footer_html, unsafe_allow_html=True)
-
 
 # --- PAGE 2 ---
 
@@ -371,8 +347,8 @@ if tabs == 'Projects':
         time.sleep(.1)
     temp.empty()
 
-    st.markdown("<h1 style='text-align: center;'>My Project Showcase</h1>", unsafe_allow_html=True)
-    st.write("Here are my awesome projects:")
+    st.markdown("<h1  style='text-align: center;'>🚀 My Project Showcase</h1>", unsafe_allow_html=True)
+    V_SPACE(1)
     selected = option_menu(None, ["Python Projects", "Data Science", 'AI/ ML Projects'],
                            icons=['filetype-py', 'clipboard-data-fill', "robot"],
                            menu_icon="cast", default_index=0, orientation="horizontal",
@@ -671,6 +647,12 @@ if tabs == 'About':
     )
 
     st.title("Thank you for visiting")
+    st.header("🧪 Insights")
 
-    st.markdown("[![Visitors](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fportfolio-kunal.streamlit.app%2F&label=WEBSITE%20VIEWS&labelColor=%23333333&countColor=%23cbc3e3&labelStyle=upper)](https://visitorbadge.io/status?path=https%3A%2F%2Fportfolio-kunal.streamlit.app%2F)")
+    st.markdown(
+        "[![Visitors](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fportfolio-kunal.streamlit.app%2F&label=WEBSITE%20VIEWS&countColor=%232ccce4&labelStyle=upper)](https://visitorbadge.io/status?path=https%3A%2F%2Fportfolio-kunal.streamlit.app%2F)" +
+        " [![Uptime Monitoring Badge](https://img.shields.io/badge/Uptime-100%25-brightgreen?style=for-the-badge)](https://portfolio-kunal.streamlit.app/)" +
+        " [![Open Issues](https://img.shields.io/badge/Open%20Issues-3-red?style=for-the-badge)](https://github.com/kunal9960)" +
+        " [![Last Commit](https://img.shields.io/github/last-commit/kunal9960/portfolio?style=for-the-badge&color=yellow)](https://github.com/kunal9960/portfolio/commits)")
 
+    st.write("This Website is entirely created with Python")
