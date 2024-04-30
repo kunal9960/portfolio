@@ -30,7 +30,7 @@ PAGE_TITLE = "Digital CV | Kunal Dalvi"
 PAGE_ICON = "assets/favicon.ico"
 
 
-st.set_page_config(page_title=PAGE_TITLE, page_icon=PAGE_ICON, layout="wide")
+st.set_page_config(page_title=PAGE_TITLE, page_icon=PAGE_ICON)
 
 # This is for scrolling at top
 js = ''' 
