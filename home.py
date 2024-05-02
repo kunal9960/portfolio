@@ -655,4 +655,128 @@ if tabs == 'About':
         " [![Open Issues](https://img.shields.io/badge/Open%20Issues-3-red?style=for-the-badge)](https://github.com/kunal9960)" +
         " [![Last Commit](https://img.shields.io/github/last-commit/kunal9960/portfolio?style=for-the-badge&color=yellow)](https://github.com/kunal9960/portfolio/commits)")
 
-    st.write("This Website is entirely created with Python")
+    import streamlit as st
+
+
+    def generate_animating_bar(language, percentage):
+        bar_html = f"""
+        <style>
+          .container {{
+            width: 96%;
+            height: 30px;
+            background-color: #f3f3f3;
+            position: relative;
+            overflow: hidden;
+          }}
+
+          .bar {{
+            width: {percentage}%;
+            height: 100%;
+            background-color: #BF40BF;
+            position: absolute;
+            animation: progress {percentage / 100}s linear forwards;
+          }}
+
+          .bar-text {{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-weight: bold;
+          }}
+
+          @keyframes progress {{
+            0% {{
+              width: 0%;
+            }}
+            100% {{
+              width: {percentage}%;
+            }}
+          }}
+        </style>
+
+        <div class="container">
+          <div class="bar"></div>
+          <div class="bar-text">{percentage}%</div>
+        </div>
+        """
+        return bar_html
+
+
+    st.markdown(
+        "## Languages Used&nbsp;" + "[![Streamlit](https://img.shields.io/badge/Streamlit-1.33.0-FF4B4B.svg?style=flat&logo=Streamlit&logoColor=white)](https://streamlit.io)",
+        unsafe_allow_html=True)
+
+    # Define the columns
+    col1, col2 = st.columns([1, 7])
+
+    # Display Python logo in first column
+    with col1:
+        st.image("https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg", width=80)
+
+    # Display animating bar in second column
+    with col2:
+        st.markdown("[![python](https://img.shields.io/badge/Python-3.12-3776AB.svg?style=flat&logo=python&logoColor=white)](https://www.python.org)")
+        st.markdown(generate_animating_bar("Python", 80), unsafe_allow_html=True)
+
+
+    def generate_animating_bar_css(percentage):
+        bar_html = f"""
+        <style>
+          .container-css {{
+            width: 96%;
+            height: 30px;
+            background-color: #f3f3f3;
+            position: relative;
+            overflow: hidden;
+          }}
+
+          .bar-css {{
+            width: {percentage}%;
+            height: 100%;
+            background-color: #BF40BF;
+            position: absolute;
+            animation: progress-css {percentage / 100}s linear forwards;
+          }}
+
+          .bar-text-css {{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-weight: bold;
+          }}
+
+          @keyframes progress-css {{
+            0% {{
+              width: 0%;
+            }}
+            100% {{
+              width: {percentage}%;
+            }}
+          }}
+        </style>
+
+        <div class="container-css">
+          <div class="bar-css"></div>
+          <div class="bar-text-css">{percentage}%</div>
+        </div>
+        """
+        return bar_html
+
+
+    # Define the columns
+    col1, col2 = st.columns([1, 7])
+
+    # Display CSS logo in first column
+    with col1:
+        st.image("https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg",
+                 width=80)
+
+    # Display animating bar for CSS in second column
+    with col2:
+        st.markdown(
+            "[![CSS](https://img.shields.io/badge/CSS-15%25-1572B6.svg?style=flat&logo=CSS3&logoColor=white)](https://www.w3.org/Style/CSS/Overview.en.html)")
+        st.markdown(generate_animating_bar_css(15), unsafe_allow_html=True)
