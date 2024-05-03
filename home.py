@@ -780,3 +780,5 @@ if tabs == 'About':
         st.markdown(
             "[![CSS](https://img.shields.io/badge/CSS-15%25-1572B6.svg?style=flat&logo=CSS3&logoColor=white)](https://www.w3.org/Style/CSS/Overview.en.html)")
         st.markdown(generate_animating_bar_css(15), unsafe_allow_html=True)
+
+
