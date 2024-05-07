@@ -646,138 +646,149 @@ if tabs == 'About':
         animation_length="5s",
     )
 
-    st.title("Thank you for visiting")
-    st.header("🧪 Insights")
+    typing_svg_link = "https://readme-typing-svg.herokuapp.com?font=Inconsolata&weight=600&size=39&duration=4000&pause=200&color=F7F7F7&random=false&width=435&lines=Thank+you+for+visiting"
+    typing_svg_markdown = f"[![Typing SVG]({typing_svg_link})](https://git.io/typing-svg)"
+    st.markdown(typing_svg_markdown, unsafe_allow_html=True)
+    V_SPACE(1)
 
+    st.subheader("🧪 Some Insights")
+    st.write("---")
     st.markdown(
-        "[![Visitors](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fportfolio-kunal.streamlit.app%2F&label=WEBSITE%20VIEWS&countColor=%232ccce4&labelStyle=upper)](https://visitorbadge.io/status?path=https%3A%2F%2Fportfolio-kunal.streamlit.app%2F)" +
+        " [![Visitors](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fportfolio-kunal.streamlit.app%2F&label=WEBSITE%20VIEWS&countColor=%232ccce4&labelStyle=upper)](https://visitorbadge.io/status?path=https%3A%2F%2Fportfolio-kunal.streamlit.app%2F)" +
         " [![Uptime Monitoring Badge](https://img.shields.io/badge/Uptime-100%25-brightgreen?style=for-the-badge)](https://portfolio-kunal.streamlit.app/)" +
         " [![Open Issues](https://img.shields.io/badge/Open%20Issues-3-red?style=for-the-badge)](https://github.com/kunal9960)" +
         " [![Last Commit](https://img.shields.io/github/last-commit/kunal9960/portfolio?style=for-the-badge&color=yellow)](https://github.com/kunal9960/portfolio/commits)")
 
+    V_SPACE(1)
+
+
+    def generate_combined_progress_bar(python_percentage, css_percentage, html_percentage):
+        bar_html = f"""
+        <div style="width: 96%; height: 20px; background-color: #f3f3f3; margin-bottom: 10px; position: relative; border: 2px solid black;">
+            <div style="width: {python_percentage}%; height: 100%; background-color: #8a2be2; position: absolute; top: 0; left: 0;">
+                <span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #301934; font-weight: bold;">{python_percentage}%</span>
+            </div>
+            <div style="width: {css_percentage}%; height: 100%; background-color: #1572B6; position: absolute; top: 0; left: {python_percentage}%; border-left: 2px solid black;">
+                <span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #00008B; font-weight: bold;">{css_percentage}%</span>
+            </div>
+            <div style="width: {html_percentage + 1}%; height: 100%; background-color: #E34F26; position: absolute; top: 0; left: {python_percentage + css_percentage}%; border-left: 2px solid black;">
+                <span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #8B0000; font-weight: bold;">{html_percentage}%</span>
+            </div>
+        </div>
+        """
+        return bar_html
+
+
+    st.subheader("✍ Languages Used")
+    st.write("---")
+    # Define the columns for row 1
+    col1, col2, col3, col4, col5, col6 = st.columns([1, 2, 1, 2, 1, 2])
+
+    # Display Python badge and version
+    with col1:
+        st.image("https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg", width=70)
+    with col2:
+        V_SPACE(1)
+        st.markdown(
+            "[![Python](https://img.shields.io/badge/Python-3.12-8a2be2.svg?style=flat&logo=python&logoColor=white)](https://www.python.org)")
+
+    # Display CSS badge and version
+    with col3:
+        st.image("https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg",
+                 width=68)
+    with col4:
+        V_SPACE(1)
+        st.markdown(
+            "[![CSS](https://img.shields.io/badge/CSS-3.0-1572B6.svg?style=flat&logo=CSS3&logoColor=white)](https://www.w3.org/Style/CSS/Overview.en.html)")
+
+    # Display HTML badge and version
+    with col5:
+        st.image("https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg",
+                 width=68)
+    with col6:
+        V_SPACE(1)
+        st.markdown(
+            "[![HTML](https://img.shields.io/badge/HTML-5.0-E34F26.svg?style=flat&logo=html5&logoColor=white)](https://www.w3.org/TR/html52/)")
+
+    # Define the column for the combined progress bar
+    col4 = st.columns(1)[0]
+
+    # Display combined progress bar for Python (70%), CSS (20%), and HTML (10%)
+    with col4:
+        st.markdown(generate_combined_progress_bar(70, 20, 10), unsafe_allow_html=True)
+
+    V_SPACE(1)
+    st.subheader("📌 Resources I used")
+    st.write("---")
+
     import streamlit as st
 
+    # Define the URLs of the YouTube videos
+    youtube_video_urls = [
+        "https://www.youtube.com/embed/hEPoto5xp3k",
+        "https://www.youtube.com/embed/RW8b-lxCm_8"  # Example video, replace with your desired videos
+    ]
 
-    def generate_animating_bar(language, percentage):
-        bar_html = f"""
-        <style>
-          .container {{
-            width: 96%;
-            height: 30px;
-            background-color: #f3f3f3;
-            position: relative;
-            overflow: hidden;
-          }}
+    # Generate the HTML code for embedding the YouTube videos
+    youtube_embed_codes = [
+        f'<iframe width="100%" height="315" src="{url}" frameborder="0" allowfullscreen></iframe>'
+        for url in youtube_video_urls
+    ]
 
-          .bar {{
-            width: {percentage}%;
-            height: 100%;
-            background-color: #BF40BF;
-            position: absolute;
-            animation: progress {percentage / 100}s linear forwards;
-          }}
-
-          .bar-text {{
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: white;
-            font-weight: bold;
-          }}
-
-          @keyframes progress {{
-            0% {{
-              width: 0%;
-            }}
-            100% {{
-              width: {percentage}%;
-            }}
-          }}
-        </style>
-
-        <div class="container">
-          <div class="bar"></div>
-          <div class="bar-text">{percentage}%</div>
-        </div>
-        """
-        return bar_html
-
-
-    st.markdown(
-        "## Languages Used&nbsp;" + "[![Streamlit](https://img.shields.io/badge/Streamlit-1.33.0-FF4B4B.svg?style=flat&logo=Streamlit&logoColor=white)](https://streamlit.io)",
-        unsafe_allow_html=True)
-
-    # Define the columns
-    col1, col2 = st.columns([1, 7])
-
-    # Display Python logo in first column
+    # Display the embedded YouTube videos in two columns
+    col1, col2 = st.columns(2)
     with col1:
-        st.image("https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg", width=80)
+        st.markdown(youtube_embed_codes[0], unsafe_allow_html=True)
 
-    # Display animating bar in second column
     with col2:
-        st.markdown("[![python](https://img.shields.io/badge/Python-3.12-3776AB.svg?style=flat&logo=python&logoColor=white)](https://www.python.org)")
-        st.markdown(generate_animating_bar("Python", 80), unsafe_allow_html=True)
+        st.markdown(youtube_embed_codes[1], unsafe_allow_html=True)
+
+    import streamlit as st
+
+    # GitHub logo
+    github_logo = '<a href="https://github.com/kunal9960"><img src="https://raw.githubusercontent.com/kunal9960/kunal9960/main/github.png" width="150"/></a>'
+
+    # Dictionary of repository names and their corresponding links
+    repo_links = {
+        "Let it Rain": "https://arnaudmiribel.github.io/streamlit-extras/extras/let_it_rain/",
+        "Streamlit on Hover Tabs": "https://github.com/Socvest/streamlit-on-Hover-tabs",
+        "Streamlit Option Menu": "https://github.com/victoryhb/streamlit-option-menu"
+    }
+
+    # Streamlit logo and corresponding links
+    streamlit_logo = '<a href="https://streamlit.io"><img src="https://raw.githubusercontent.com/github/explore/968d1eb8fb6b704c6be917f0000283face4f33ee/topics/streamlit/streamlit.png" width="150"/></a>'
+    streamlit_links = {
+        "Discussion 1": "https://discuss.streamlit.io/t/create-empty-space-to-separate-portions-of-the-app/8689",
+        "Discussion 2": "https://discuss.streamlit.io/t/how-to-plot-a-matplotlib-animation-in-my-streamlit-app/22764",
+        "Streamlit API Reference": "https://docs.streamlit.io/develop/api-reference/layout"
+    }
+
+    col5, col6 = st.columns(2)
+    # Display in columns
+    col1, col2, col3, col4 = st.columns([1, 1, 1, 1])
+
+    # Column 1: GitHub logo
+    with col5:
+        st.write("<h4>🔗 Github Repo</h4>", unsafe_allow_html=True)
+        with col1:
+            st.markdown(github_logo, unsafe_allow_html=True)
+
+        # Column 2: GitHub repositories with names
+        with col2:
+            for repo_name, repo_link in repo_links.items():
+                st.markdown(f"**[{repo_name}]({repo_link})**")
+
+    with col6:
+        st.write("<h4>🔗 Streamlit</h4>", unsafe_allow_html=True)
+        with col3:
+            st.markdown(streamlit_logo, unsafe_allow_html=True)
+
+        # Column 4: Streamlit links with names
+        with col4:
+            for link_name, link_url in streamlit_links.items():
+                st.markdown(f"**[{link_name}]({link_url})**")
 
 
-    def generate_animating_bar_css(percentage):
-        bar_html = f"""
-        <style>
-          .container-css {{
-            width: 96%;
-            height: 30px;
-            background-color: #f3f3f3;
-            position: relative;
-            overflow: hidden;
-          }}
-
-          .bar-css {{
-            width: {percentage}%;
-            height: 100%;
-            background-color: #BF40BF;
-            position: absolute;
-            animation: progress-css {percentage / 100}s linear forwards;
-          }}
-
-          .bar-text-css {{
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: white;
-            font-weight: bold;
-          }}
-
-          @keyframes progress-css {{
-            0% {{
-              width: 0%;
-            }}
-            100% {{
-              width: {percentage}%;
-            }}
-          }}
-        </style>
-
-        <div class="container-css">
-          <div class="bar-css"></div>
-          <div class="bar-text-css">{percentage}%</div>
-        </div>
-        """
-        return bar_html
 
 
-    # Define the columns
-    col1, col2 = st.columns([1, 7])
-
-    # Display CSS logo in first column
-    with col1:
-        st.image("https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg",
-                 width=80)
-
-    # Display animating bar for CSS in second column
-    with col2:
-        st.markdown(
-            "[![CSS](https://img.shields.io/badge/CSS-15%25-1572B6.svg?style=flat&logo=CSS3&logoColor=white)](https://www.w3.org/Style/CSS/Overview.en.html)")
-        st.markdown(generate_animating_bar_css(15), unsafe_allow_html=True)
 
