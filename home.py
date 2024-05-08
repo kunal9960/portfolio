@@ -511,11 +511,6 @@ if tabs == 'Projects':
              "image": "https://raw.githubusercontent.com/kunal9960/accidents-data-analysis/main/Dashboard.png",
              "github_link": "https://github.com/kunal9960/accidents-data-analysis",
              "height": 160},
-            {"name": "Titanic dataset Analysis",
-             "description": "This script uses the Titanic dataset, detailing passenger information such as age, gender, class, fare, and survival status.",
-             "image": "https://raw.githubusercontent.com/kunal9960/PRODIGY_DS_02/master/Gender.png",
-             "github_link": "https://github.com/kunal9960/PRODIGY_DS_02",
-             "height": 160},
         ]
 
         with st.container():
@@ -756,7 +751,7 @@ if tabs == 'About':
     col1, col2, col8, col3, col4, = st.columns([3, 3, 1, 3, 2])
 
     with col5:
-        st.write("<h4>🔗 Github Repos</h4>", unsafe_allow_html=True)
+        st.write("<h4>🔗 Github Repo</h4>", unsafe_allow_html=True)
         with col1:
             st.markdown(github_logo, unsafe_allow_html=True)
 
