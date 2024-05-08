@@ -348,7 +348,7 @@ if tabs == 'Projects':
         time.sleep(.1)
     temp.empty()
 
-    st.markdown("<h1  style='text-align: center;'>🚀 My Project Showcase</h1>", unsafe_allow_html=True)
+    st.markdown("<h1  style='text-align: center;'>🚀 PROJECT SHOWCASE</h1>", unsafe_allow_html=True)
     V_SPACE(1)
     selected = option_menu(None, ["Python Projects", "Data Science", 'AI/ ML Projects'],
                            icons=['filetype-py', 'clipboard-data-fill', "robot"],
@@ -647,7 +647,7 @@ if tabs == 'About':
         animation_length="5s",
     )
 
-    typing_svg_link = "https://readme-typing-svg.herokuapp.com?font=Inconsolata&weight=600&size=39&duration=4000&pause=200&color=F7F7F7&random=false&width=435&lines=Thank+you+for+visiting"
+    typing_svg_link = "https://readme-typing-svg.herokuapp.com?font=Inconsolata&weight=600&size=39&duration=4000&pause=200&color=F7F7F7&random=false&width=435&lines=THANK+YOU+FOR+VISITING"
     typing_svg_markdown = f"[![Typing SVG]({typing_svg_link})](https://git.io/typing-svg)"
     st.markdown(typing_svg_markdown, unsafe_allow_html=True)
     V_SPACE(1)
