@@ -885,3 +885,4 @@ with <img src="https://em-content.zobj.net/source/skype/289/red-heart_2764-fe0f.
 </div>
 """
 st.write(ft, unsafe_allow_html=True)
+
