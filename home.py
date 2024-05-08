@@ -9,13 +9,12 @@ from st_on_hover_tabs import on_hover_tabs
 from streamlit_extras.let_it_rain import rain
 from streamlit_option_menu import option_menu
 
-
 # --- PATH SETTINGS ---
 
 current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
 css_file = current_dir / "styles" / "main.css"
 resume_file = current_dir / "assets" / "resume.pdf"
-profile_pic = current_dir / "assets" / "profile-pic.jpg"
+profile_pic = current_dir / "assets" / "profile-pic.png"
 
 
 # --- GENERAL SETTINGS ---
@@ -25,6 +24,14 @@ def V_SPACE(lines):
     for _ in range(lines):
         st.write('&nbsp;')
 
+
+def remove_trailing_spaces():
+    st.markdown("""<style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+    </style>""", unsafe_allow_html=True)
 
 PAGE_TITLE = "Digital CV | Kunal Dalvi"
 PAGE_ICON = "assets/favicon.ico"
@@ -55,7 +62,6 @@ SOCIALS = (
     '<a href="https://discord.gg/bge3cXHuNC" class="no-margin"><img src="https://img.icons8.com/external-justicon-lineal-color-justicon/344/external-discord-social-media-justicon-lineal-color-justicon.png" width="60"/></a>'
 )
 
-
 # --- LOAD CSS, PDF & PROFILE PIC ---
 
 with open(css_file) as f:
@@ -63,7 +69,6 @@ with open(css_file) as f:
 with open(resume_file, "rb") as pdf_file:
     PDFbyte = pdf_file.read()
 profile_pic = Image.open(profile_pic)
-
 
 # --- LOAD SIDEBAR CSS ---
 
@@ -88,7 +93,6 @@ with st.sidebar:
                                               'padding-left': '30px'
                                               }},
                          key="1", default_choice=0)
-
 
 # --- PAGE 1 ---
 
@@ -223,6 +227,54 @@ if tabs == 'Home':
 
     col1, col2 = st.columns(2)
     with col1:
+        st.write("<h4>🌱 OctaNet Pvt Ltd.</h4>", unsafe_allow_html=True)
+    with col2:
+        st.write("<h4>📈 InnoByte Services</h4>", unsafe_allow_html=True)
+
+    col1, col2, col3, col4 = st.columns([7, 2, 7, 2])
+    with col1:
+        st.write("<h5><b>Python Developer Intern</b></h5>", unsafe_allow_html=True)
+        st.write("📅 May '24 - Present ")
+        st.write("📍 <i>Bhubaneshwar, Odisha, India </i><br>&nbsp;&nbsp;&nbsp;<i>(Remote)</i>", unsafe_allow_html=True)
+
+    with col2:
+        st.markdown(
+            """
+            <style>
+                .vertical-line3 {
+                    border-left: 6px solid #86d72f;
+                    height: 110px;
+                    margin: auto;
+                }
+            </style>
+            """
+            , unsafe_allow_html=True
+        )
+        st.markdown('<div class="vertical-line3"></div>', unsafe_allow_html=True)
+
+    with col3:
+        st.write("<h5><b>Data Analyst Intern</b></h5>", unsafe_allow_html=True)
+        st.write("📅 May '24 - June '24 ")
+        st.write("📍 <i>New Delhi, Delhi, India</i><br>&nbsp;&nbsp;&nbsp;<i>(Remote)</i>", unsafe_allow_html=True)
+
+    with col4:
+        st.markdown(
+            """
+            <style>
+                .vertical-line4 {
+                    border-left: 6px solid #e1d8ec;
+                    height: 110px;
+                    margin: auto;
+                }
+            </style>
+            """
+            , unsafe_allow_html=True
+        )
+        st.markdown('<div class="vertical-line4"></div>', unsafe_allow_html=True)
+
+    V_SPACE(1)
+    col1, col2 = st.columns(2)
+    with col1:
         st.write("<h4>🦊 ShadowFox</h4>", unsafe_allow_html=True)
     with col2:
         st.write("<h4>💡 Prodigy InfoTech</h4>", unsafe_allow_html=True)
@@ -239,7 +291,7 @@ if tabs == 'Home':
             <style>
                 .vertical-line2 {
                     border-left: 6px solid orange;
-                    height: 107px;
+                    height: 110px;
                     margin: auto;
                 }
             </style>
@@ -259,7 +311,7 @@ if tabs == 'Home':
             <style>
                 .vertical-line {
                     border-left: 6px solid yellow;
-                    height: 107px;
+                    height: 110px;
                     margin: auto;
                 }
             </style>
@@ -337,7 +389,6 @@ From: {user_email}
                  unsafe_allow_html=True)
         st.markdown(
             "[![Visitors](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fportfolio-kunal.streamlit.app%2F&label=WEBSITE%20VIEWS&labelColor=%23333333&countColor=%23cbc3e3&labelStyle=upper)](https://visitorbadge.io/status?path=https%3A%2F%2Fportfolio-kunal.streamlit.app%2F)")
-
 
 # --- PAGE 2 ---
 
@@ -624,7 +675,6 @@ if tabs == 'Projects':
                         unsafe_allow_html=True
                     )
 
-
 # --- PAGE 3 ---
 
 if tabs == 'About':
@@ -645,6 +695,9 @@ if tabs == 'About':
     typing_svg_link = "https://readme-typing-svg.herokuapp.com?font=Inconsolata&weight=600&size=39&duration=4000&pause=200&color=F7F7F7&random=false&width=435&lines=THANK+YOU+FOR+VISITING"
     typing_svg_markdown = f"[![Typing SVG]({typing_svg_link})](https://git.io/typing-svg)"
     st.markdown(typing_svg_markdown, unsafe_allow_html=True)
+    st.info("Most of this website is created using Python, one of the known issues is that "
+            "this isn't an android/ IOS friendly website because streamlit have limitations.", icon="ℹ️")
+
     V_SPACE(1)
 
     st.subheader("🧪 Some Insights")
@@ -660,15 +713,15 @@ if tabs == 'About':
 
     def generate_combined_progress_bar(python_percentage, css_percentage, html_percentage):
         bar_html = f"""
-        <div style="width: 96%; height: 20px; background-color: #f3f3f3; margin-bottom: 10px; position: relative; border: 2px solid black;">
+        <div style="width: 96%; height: 25px; background-color: #f3f3f3; margin-bottom: 10px; position: relative; border: 2px solid black;">
             <div style="width: {python_percentage}%; height: 100%; background-color: #8a2be2; position: absolute; top: 0; left: 0;">
-                <span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #301934; font-weight: bold;">{python_percentage}%</span>
+                <span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-weight: bold;">{python_percentage}%</span>
             </div>
             <div style="width: {css_percentage}%; height: 100%; background-color: #1572B6; position: absolute; top: 0; left: {python_percentage}%; border-left: 2px solid black;">
-                <span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #00008B; font-weight: bold;">{css_percentage}%</span>
+                <span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-weight: bold;">{css_percentage}%</span>
             </div>
             <div style="width: {html_percentage + 1}%; height: 100%; background-color: #E34F26; position: absolute; top: 0; left: {python_percentage + css_percentage}%; border-left: 2px solid black;">
-                <span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #8B0000; font-weight: bold;">{html_percentage}%</span>
+                <span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-weight: bold;">{html_percentage}%</span>
             </div>
         </div>
         """
@@ -782,3 +835,50 @@ if tabs == 'About':
         with col4:
             for link_name, link_url in streamlit_links.items():
                 st.markdown(f"**[{link_name}]({link_url})**")
+
+
+ft = """
+<style>
+a:link , a:visited{
+color: #BFBFBF;  /* theme's text color hex code at 75 percent brightness*/
+background-color: transparent;
+text-decoration: none;
+}
+
+a:hover,  a:active {
+color: #0283C3; /* theme's primary color*/
+background-color: transparent;
+text-decoration: underline;
+}
+
+#page-container {
+  position: relative;
+  min-height: 10vh;
+}
+
+footer{
+    visibility:hidden;
+}
+
+.footer {
+position: relative;
+left: 0;
+top:150px;
+bottom: 0;
+width: 100%;
+background-color: transparent;
+color: #808080; /* theme's text color hex code at 50 percent brightness*/
+text-align: left; /* you can replace 'left' with 'center' or 'right' if you want*/
+}
+</style>
+
+<div id="page-container">
+
+<div class="footer">
+<p style='font-size: 1em;'>Made with <a style='display: inline; text-align: left;' href="https://streamlit.io/" target="_blank">Streamlit</a><br 'style= top:3px;'>
+with <img src="https://em-content.zobj.net/source/skype/289/red-heart_2764-fe0f.png" alt="heart" height= "10"/><a style='display: inline; text-align: left;' href="https://github.com/kunal9960" target="_blank"> by Kunal</a></p>
+</div>
+
+</div>
+"""
+st.write(ft, unsafe_allow_html=True)
