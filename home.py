@@ -168,7 +168,7 @@ if tabs == 'Home':
     st.write("---")
     col1, col2 = st.columns(2)
     with col1:
-        st.markdown("<b>Programming</b>", unsafe_allow_html=True)
+        st.markdown("<b>Programming:</b>", unsafe_allow_html=True)
         st.markdown(
             "![Python Badge](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=fff&style=flat)&nbsp;&nbsp;"
             "![C++ Badge](https://img.shields.io/badge/C%2B%2B-00599C?logo=cplusplus&logoColor=fff&style=flat)&nbsp;&nbsp;"
@@ -885,4 +885,3 @@ with <img src="https://em-content.zobj.net/source/skype/289/red-heart_2764-fe0f.
 </div>
 """
 st.write(ft, unsafe_allow_html=True)
-
