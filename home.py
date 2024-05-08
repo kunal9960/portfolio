@@ -33,6 +33,7 @@ def remove_trailing_spaces():
         }
     </style>""", unsafe_allow_html=True)
 
+
 PAGE_TITLE = "Digital CV | Kunal Dalvi"
 PAGE_ICON = "assets/favicon.ico"
 
@@ -120,7 +121,7 @@ if tabs == 'Home':
 
     col1, col2 = st.columns([5, 6])
     with col1:
-        st.image(profile_pic, width=320)
+        st.image(profile_pic, width=315)
 
     with col2:
         st.title(NAME)
@@ -215,7 +216,8 @@ if tabs == 'Home':
             "![PyCharm](https://img.shields.io/badge/pycharm-143?style=flat&logo=pycharm&logoColor=black&color=black&labelColor=green)&nbsp;"
             "![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=flat&logo=visual-studio-code&logoColor=white)&nbsp;&nbsp;"
             "![Replit Badge](https://img.shields.io/badge/Replit-F26207?logo=replit&logoColor=fff&style=flat)&nbsp;&nbsp;"
-            "![Jupyter Badge](https://img.shields.io/badge/Jupyter-F37626?logo=jupyter&logoColor=fff&style=flat)"
+            "![Jupyter Badge](https://img.shields.io/badge/Jupyter-F37626?logo=jupyter&logoColor=fff&style=flat)&nbsp;&nbsp;"
+            "![Raspberry Pi](https://img.shields.io/badge/-Raspberry%20Pi-C51A4A?style=flat-square&logo=Raspberry-Pi)"
         )
 
     # --- WORK HISTORY ---
@@ -695,8 +697,8 @@ if tabs == 'About':
     typing_svg_link = "https://readme-typing-svg.herokuapp.com?font=Inconsolata&weight=600&size=39&duration=4000&pause=200&color=F7F7F7&random=false&width=435&lines=THANK+YOU+FOR+VISITING"
     typing_svg_markdown = f"[![Typing SVG]({typing_svg_link})](https://git.io/typing-svg)"
     st.markdown(typing_svg_markdown, unsafe_allow_html=True)
-    st.info("Most of this website is created using Python, one of the known issues is that "
-            "this isn't an android/ IOS friendly website because streamlit have limitations.", icon="ℹ️")
+    st.info("Most of this website is built using Python, one of the known issues is that "
+            "this isn't an android/ IOS friendly website because of the streamlit limitations.", icon="ℹ️")
 
     V_SPACE(1)
 
