@@ -34,7 +34,7 @@ def remove_trailing_spaces():
     </style>""", unsafe_allow_html=True)
 
 
-PAGE_TITLE = "Digital CV | Kunal Dalvi"
+PAGE_TITLE = "Portfolio | Kunal Dalvi"
 PAGE_ICON = "assets/favicon.ico"
 
 st.set_page_config(page_title=PAGE_TITLE, page_icon=PAGE_ICON)
