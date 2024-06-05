@@ -226,55 +226,6 @@ if tabs == 'Home':
     V_SPACE(1)
     st.subheader("💼 Work History")
     st.write("---")
-
-    col1, col2 = st.columns(2)
-    with col1:
-        st.write("<h4>🌱 OctaNet Pvt Ltd.</h4>", unsafe_allow_html=True)
-    with col2:
-        st.write("<h4>📈 InnoByte Services</h4>", unsafe_allow_html=True)
-
-    col1, col2, col3, col4 = st.columns([7, 2, 7, 2])
-    with col1:
-        st.write("<h5><b>Python Developer Intern</b></h5>", unsafe_allow_html=True)
-        st.write("📅 May '24 - Present ")
-        st.write("📍 <i>Bhubaneshwar, Odisha, India </i><br>&nbsp;&nbsp;&nbsp;<i>(Remote)</i>", unsafe_allow_html=True)
-
-    with col2:
-        st.markdown(
-            """
-            <style>
-                .vertical-line3 {
-                    border-left: 6px solid #86d72f;
-                    height: 110px;
-                    margin: auto;
-                }
-            </style>
-            """
-            , unsafe_allow_html=True
-        )
-        st.markdown('<div class="vertical-line3"></div>', unsafe_allow_html=True)
-
-    with col3:
-        st.write("<h5><b>Data Analyst Intern</b></h5>", unsafe_allow_html=True)
-        st.write("📅 May '24 - June '24 ")
-        st.write("📍 <i>New Delhi, Delhi, India</i><br>&nbsp;&nbsp;&nbsp;<i>(Remote)</i>", unsafe_allow_html=True)
-
-    with col4:
-        st.markdown(
-            """
-            <style>
-                .vertical-line4 {
-                    border-left: 6px solid #e1d8ec;
-                    height: 110px;
-                    margin: auto;
-                }
-            </style>
-            """
-            , unsafe_allow_html=True
-        )
-        st.markdown('<div class="vertical-line4"></div>', unsafe_allow_html=True)
-
-    V_SPACE(1)
     col1, col2 = st.columns(2)
     with col1:
         st.write("<h4>🦊 ShadowFox</h4>", unsafe_allow_html=True)
