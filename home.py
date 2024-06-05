@@ -408,11 +408,6 @@ if tabs == 'Projects':
         st.markdown(css, unsafe_allow_html=True)
 
         project_details = [
-            {"name": "Hangman Game",
-             "description": "This repository contains a Python script that implements the classic Hangman game.",
-             "image": "https://raw.githubusercontent.com/kunal9960/hangman/master/Asset.png",
-             "github_link": "https://github.com/kunal9960/hangman",
-             "height": 160},
             {"name": "Positive News API",
              "description": "This Python script fetches the latest news articles from TechCrunch using the News API and sends them via email.",
              "image": "https://raw.githubusercontent.com/kunal9960/positive-news-api/master/Example.png",
