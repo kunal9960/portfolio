@@ -380,7 +380,7 @@ if tabs == 'Projects':
                             opacity: 1;
                         }
                     }
-                
+
                     .project-card {
                         animation: fadeIn 0.5s ease-in-out;
                     }
@@ -787,7 +787,6 @@ if tabs == 'About':
         with col4:
             for link_name, link_url in streamlit_links.items():
                 st.markdown(f"**[{link_name}]({link_url})**")
-
 
 ft = """
 <style>
