@@ -1,86 +1,21 @@
-@import url("https://fonts.googleapis.com/css?family=Inconsolata&display=swap");
-* {font-family: 'Inconsolata';}
-
-ul {list-style-type: none;}
-
-hr {
-    margin-top: 0px;
-    margin-bottom: 5%;
+.home-img img {
+    width: 25vw;
+    border: 3px solid #8C57F7;
+    border-radius: 51% 49% 48% 52% / 49% 49% 51% 51%;
+    animation: borderAnimation 5s linear infinite;
 }
 
-section[data-testid='stSidebar'] {
-    background-color: #111;
-    flex-shrink: unset !important;
-
-}
-
-@media(hover:hover) and (min-width: 600px) and (max-width: 769px){
-
-    header[data-testid="stHeader"] {
-        display:none;
+@keyframes borderAnimation {
+    0% {
+        border-radius: 51% 49% 48% 52% / 49% 49% 51% 51%;
     }
-
-    section[data-testid='stSidebar'] {
-        height: 100%;
-        min-width:95px !important;
-        width: 95px !important;
-        margin-left: 305px;
-        position: relative;
-        z-index: 1;
-        top: 0;
-        left: 0;
-        background-color: #111;
-        overflow-x: hidden;
-        transition: 0.5s ease;
-        padding-top: 60px;
-        white-space: nowrap;
+    35% {
+        border-radius: 60% 40% 57% 43% / 40% 54% 46% 60%;
     }
-
-    section[data-testid='stSidebar']:hover{
-        min-width: 330px !important;
-        }
-
-    button[kind="header"] {
-        display: none;
+    65% {
+        border-radius: 67% 33% 68% 32% / 27% 70% 30% 73%;
     }
-
-    div[data-testid="collapsedControl"]{
-        display: none;
-    }
-
-}
-
-@media(hover: hover) and (min-width: 769px){
-
-    header[data-testid="stHeader"] {
-        display:none;
-    }
-
-    section[data-testid='stSidebar'] {
-        height: 100%;
-        min-width:95px !important;
-        width: 95px !important;
-        transform:translateX(0px);
-        position: relative;
-        z-index: 1;
-        top: 0;
-        left: 0;
-        background-color: #111;
-        overflow-x: hidden;
-        transition: 0.5s ease;
-        padding-top: 60px;
-        white-space: nowrap;
-    }
-
-    section[data-testid='stSidebar']:hover{
-        min-width: 330px !important;
-        }
-
-    button[kind="header"] {
-        display: none;
-    }
-
-    div[data-testid="collapsedControl"]{
-        display: none;
+    100% {
+        border-radius: 51% 49% 48% 52% / 49% 49% 51% 51%;
     }
 }
