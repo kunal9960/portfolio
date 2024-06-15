@@ -60,6 +60,7 @@ streamlit-extras==0.4.3
 streamlit-faker==0.0.3
 streamlit-image-coordinates==0.1.9
 streamlit-keyup==0.2.4
+streamlit-navigation-bar==3.3.0
 streamlit-on-Hover-tabs==1.0.1
 streamlit-option-menu==0.3.13
 streamlit-toggle-switch==1.0.2
