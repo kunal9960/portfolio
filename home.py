@@ -48,7 +48,6 @@ js = '''
 </script>
 '''
 
-NAME = "PORTFOLIO WEBSITE"
 DESCRIPTION = """ 
 Hi! I'm Kunal Dalvi, a Python enthusiast with a keen interest in data analysis. 
 I'm driven by curiosity and love taking on new challenges. 
@@ -124,7 +123,7 @@ if tabs == 'Home':
         st.image(profile_pic, width=315)
 
     with col2:
-        st.title(NAME)
+        st.markdown("<h2>Portfolio Website<h2>", unsafe_allow_html=True)
         st.info(DESCRIPTION)
         st.download_button(
             label="📝 Download Resume",
